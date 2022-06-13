@@ -2,9 +2,12 @@ import streamlit as st
 from fastai.vision.all import * 
 import pathlib
 import plotly.express as px
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
-st.title("Transportni klassifikatsiya qiluvchi modelll")
+import platform
+
+plt = platform.system()
+if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
+    
+st.title("Model that can classify pictures of transports. (Boats, Cars, Airplanes)")
 
 # uploading an image
 
